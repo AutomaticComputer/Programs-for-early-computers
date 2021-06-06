@@ -8,3 +8,5 @@ i1401 asciiart.ini
 ```
 
 のように実行する。
+
+![Screenshot](asciiart_1401.png).
