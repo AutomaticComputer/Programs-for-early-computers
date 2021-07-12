@@ -1,0 +1,156 @@
+[ASCIIART for EDSAC]
+
+[R9]
+..PKT56KGK
+T20FVDL8FA40DUDTFI40FA40FS39FG@
+S2FG23FA5@T5@E4@
+
+
+[Code letters]
+..PKT45K
+P106F  [H: subroutine, 60 words]
+P166F  [N: short constants, 9 words]
+P176D  [M: long constants, uses R9, 6 (short) words]
+P182F  [&, characeter codes, 11 words]
+P194D  [L: long variables, 12 (short) words]
+P206F  [X: short variables, 4 words]
+
+[Main routine, 34 words]
+..PKT72K
+GK
+[@] O8&
+A2N
+T1X
+AN
+TX
+HX
+VM
+L1024F
+L2F
+TL
+[10@] H1X
+V2M
+L1024F
+L2F
+T2L
+A15@
+GH
+AX
+A5N
+UX
+[20@] S1N
+E24@
+T3X
+E5@
+O9&
+O10&
+A1X
+A5N
+U1X
+S3N
+[30@] E33@
+T3X
+E3@
+ZF    [stop]
+
+[H: subroutine, 60 words]
+..PKT106K
+GK
+[@] A3F
+T58@
+AL
+T4L   [plant link]
+A2L
+T6L
+T2X
+H6L
+V6L
+L16F
+[10@] T8L
+H4L
+V4L
+L16F
+S8L
+AL
+T8L
+H4L
+V6L
+L32F
+[20@] A2L
+T6L
+A8L
+T4L
+H4L
+V4L
+L16F
+T8L
+H6L
+V6L
+[30@] L16F
+A8L
+S4M
+E42@
+T3X
+A2X
+A5N
+U2X
+S7N
+E42@
+[40@] T3X
+E7@
+T3X
+A2X
+S8N
+E51@
+A8N
+L512F
+T3X
+O3X
+[50@] E58@
+A59@
+T53@
+ZF
+T3X
+O7&
+O3X
+O8&
+ZF   [link order]
+A&   [pseudo order]
+
+
+[N: short constants, 9 words]
+..PKT166K
+P65497F
+P40F
+P65524F
+P13F
+PF
+P1F
+P2F
+P16F
+P10F
+
+[M: long constants, uses R9, 6 (short) words]
+..E69K
+TM
+12294344F
+22368727F
+1073741824#
+
+[&, characeter codes, 11 words]
+..PKT182K
+AF
+BF
+CF
+DF
+EF
+FF
+!F
+P30720F
+#F
+@F
+&F
+
+
+E72KPF
+

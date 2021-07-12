@@ -1,0 +1,192 @@
+209a210,211
+> int32 cycles_left = 0;
+> 
+526a529,530
+> int32 alnt, blnt, wlnt, clnt, ylnt, mlnt, xlnt, rlnt, qlnt;
+> int32 mult_cnt = 0, cycle_cnt = 0;
+541a546,555
+> /*
+> if (cycles_left > sim_interval) {
+>     cycles_left -= sim_interval;
+>     sim_interval = 0;
+> } else {
+>     sim_interval -= cycles_left;
+>     cycles_left = 0;
+> }
+> */
+> 
+563d576
+< 
+709a723,731
+> alnt = 0;
+> blnt = 0;
+> wlnt = 0;
+> ylnt = 0;
+> clnt = 0;
+> mlnt = 0;
+> xlnt = 0;
+> rlnt = 0;
+> qlnt = 0;
+731a754
+> // FIXME: cycle_cnt
+742a766
+>             wlnt++;
+743a768
+> cycle_cnt += ilnt + 1 + 2*wlnt;
+748a774
+> // FIXME: cycle_cnt
+758a785
+>             alnt++;
+759a787
+> cycle_cnt += ilnt + 1 + 2*alnt;
+788a817,818
+>             alnt++;
+>             blnt++;
+789a820
+> cycle_cnt += ilnt + 1 + 2*alnt;
+799a831,832
+>             alnt++;
+>             blnt++;
+816a850
+> cycle_cnt += ilnt + 1 + 3*alnt;
+822a857
+> cycle_cnt += ilnt + 3;
+828a864
+> cycle_cnt += ilnt + 3;
+867a904
+> cycle_cnt += ilnt + 1;
+892a930
+> cycle_cnt += ilnt + 2;
+901a940
+> cycle_cnt += ilnt + 2;
+936a976
+>                 alnt++;
+941a982
+>             blnt++;
+942a984
+> cycle_cnt += ilnt + 1 + alnt + blnt;
+949a992
+> alnt++;
+958a1002
+> blnt++;
+963a1008
+> cycle_cnt += ilnt + 3 + alnt + blnt;
+971a1017
+>                 alnt++;
+984a1031
+>             blnt++;
+987a1035
+> // FIXME: cycle_cnt
+994a1043,1046
+> cycle_cnt += ilnt + 3 + alnt + 4*blnt;
+>             }
+>         else {
+> cycle_cnt += ilnt + 3 + alnt + blnt;
+1014a1067
+>             wlnt++;
+1021a1075
+> cycle_cnt += ilnt + 1 + 2*wlnt;
+1045a1100,1102
+> // FIXME: cycle_cnt 
+> // cycles in the case the operation aborts? 
+> // I/O timing not taken into account
+1054a1112
+> cycle_cnt += ilnt + 1;
+1064a1123
+> cycle_cnt += ilnt + 1;
+1074a1134
+> cycle_cnt += ilnt + 1;
+1087a1148
+> cycle_cnt += ilnt + 1;
+1100a1162
+> cycle_cnt += ilnt + 1;
+1113a1176
+> cycle_cnt += ilnt + 1;
+1127a1191
+> cycle_cnt += ilnt + 1;
+1137a1202
+> cycle_cnt += ilnt + 1;
+1145a1211
+> cycle_cnt += ilnt + 1;
+1156a1223
+> // FIXME: cycle_cnt
+1158a1226
+> cycle_cnt += ilnt + 1;
+1276a1345
+> alnt++;
+1294a1364
+> blnt++;
+1296a1367
+> cycle_cnt += ilnt + 1 + alnt + blnt; 
+1336a1408
+> ylnt++;
+1338a1411,1412
+> cycle_cnt += ylnt;
+> // printf("edit char pass 2: %d cycles\n", ilnt + 1 + alnt + blnt + ylnt);
+1362a1437
+> // printf("edit char %d\n", ilnt + 1 + alnt + blnt + ylnt);
+1388a1464
+> mult_cnt++;
+1395a1472
+> clnt++;
+1407a1485,1487
+> // cycle count guessed from 
+> // http://ibm-1401.info/IBM1401-225-6541-0_1401_Optional_Features_CE_Apr61.pdf
+> 
+1421a1502
+> cycle_cnt += ((bcd_to_bin[b & DIGIT] + 1) & 0xe);
+1424a1506
+> cycle_cnt += ((bcd_to_bin[b & DIGIT] + 1) & 0xe);
+1431a1514,1516
+> mlnt = lowprd - BS - clnt - 1;
+> // average: ilnt + 3 + 2*clnt + 5*clnt*mlnt + 7*mlnt
+> cycle_cnt += ilnt + 3 + 2*clnt + 2*mlnt;
+1472a1558
+> rlnt++;
+1492c1578,1579
+<             break;
+---
+> // FIXME: cycle_cnt 
+>            break;
+1519a1607
+> cycle_cnt += ((quo + 3) & 0xe) * (rlnt + 1);
+1522a1611
+> qlnt++;
+1523a1613,1614
+> // average: ilnt + 2 + 7*rlnt*qlnt + 8*qlnt
+> cycle_cnt += ilnt + 2 + qlnt;
+1559a1651
+> cycle_cnt += ilnt + 3;
+1566a1659
+> cycle_cnt += ilnt + 3;
+1589a1683
+>             {
+1590a1685,1686
+> xlnt++;
+>             }
+1595a1692
+> cycle_cnt += ilnt + 1 + xlnt;
+1623a1721
+> cycle_cnt += ilnt + 9;
+1645a1744,1745
+> if (op == OP_SAR) cycle_cnt += ilnt + 5;
+> else cycle_cnt += ilnt + 4;
+1650a1751
+> cycle_cnt += ilnt + 1;
+1659a1761,1763
+> cycle_cnt += ilnt + 1;
+> // printf("%d cycles, %d multiplications.\n", cycle_cnt, mult_cnt);
+> printf("%d cycles\n", cycle_cnt);
+1666c1770,1779
+<     }                                                   /* end while */
+---
+> /*
+> if (cycle_cnt - 1 <= sim_interval) {
+>     sim_interval -= (cycle_cnt - 1);
+> } else {
+>     cycles_left = cycle_cnt - 1 - sim_interval;
+>     sim_interval = 0;
+> }
+> cycle_cnt = 0;
+> */
+> }                                                   /* end while */
