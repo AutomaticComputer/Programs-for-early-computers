@@ -18,13 +18,15 @@ Computer History Museum の [ibm-1401.info](http://ibm-1401.info/)
 ## 操作方法
 
 [asciiart.ini](asciiart.ini), [asciiart.cd](asciiart.cd) をカレントディレクトリにおいて、
-[simh](http://simh.trailing-edge.com/) の i1401 で、
+[simh](http://simh.trailing-edge.com/) の i1401 を
 
 ```
 i1401 asciiart.ini
 ```
 
 のように実行する。
+"asciiart.txt" に結果が保存される。
+
 
 ## 実行結果、速度
 
@@ -34,7 +36,7 @@ simh の i1401 に少しコードを付け加えてサイクル数を計測し�
 [ver. 4.0 からの diff](i1401_cpu.c.diff)(それ以前でも多分あまり変わらない。)
 simh 本体にもいつか入れてもらいたいところだが、まずは simh 全体の構造を勉強中。
 
-これを信用すれば、ASCIIART は 175359746 サイクルで、"CPU Time" としては 199.6 秒ということになる。
+これを信用すれば、ASCIIART は 17359746 サイクルで、"CPU Time" としては 199.6 秒ということになる。
 (Ken Shirriff 氏の Mandelbrot は 63490467 サイクル、730.1 秒となった。
 実機で 12 分ということなので、大体信用できそうである。)
 
