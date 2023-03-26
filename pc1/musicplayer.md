@@ -3,11 +3,11 @@
 残念ながら、スタンドアローン版でしか動作しない。
 
 - プログラム: [musicplayer.ptr](musicplayer.ptr)
-- サンプル曲: [sakura.ptr](sakura.ptr)
+- サンプル曲: [sakura.ptr](sakura.ptr), [happybirthday.ptr](happybirthday.ptr)
 
 をテープのディレクトリに入れる。Windows なら "(ユーザーのディレクトリ)\AppData\LocalLow\AutomaticComputer\PC-1 on Unity\Tapes\"
 
-R0 を Initial load し、R0 で musicplayer.ptr を読み込み、続けて sakura.ptr を読み込む。
+R0 を Initial load し、R0 で musicplayer.ptr を読み込み、続けて sakura.ptr (等)を読み込む。
 
 t でテンポ、o でオクターブを設定。音名は a, b, ..., g, シャープは l を付ける。
 ただし、O1 の B から O3 の B くらいしか出ない。休符は p. 
